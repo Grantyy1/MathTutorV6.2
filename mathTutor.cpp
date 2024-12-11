@@ -163,7 +163,122 @@ vector<int> GenerateRandomQuestion(int mathLevel) {
     return {mathLevel, leftNum, mathSymbol, rightNum, correctAnswer};
 
 }// end of GenerateRandomQuestion function
+} // end of CheckForLevelChange
+/*#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <iomanip>
+#include <cstdlib>
+#include <ctime>
+#include <stdexcept>
 
+using namespace std;
+
+void DisplayIntro();
+void InputSantaGifts(vector<string>& gifts);
+void InputChildrenNames(vector<string>& children);
+void SaveSantaList(const vector<string>& gifts, const vector<string>& children);
+
+int main() {
+    vector<string> gifts;
+    vector<string> children;
+
+    DisplayIntro();
+    InputSantaGifts(gifts);
+    InputChildrenNames(children);
+
+    try {
+        SaveSantaList(gifts, children);
+    }
+    catch (const exception& e) {
+        cout << "Error: " << e.what() << endl;
+        return 1;
+    }
+
+    return 0;
+}
+
+void DisplayIntro() {
+    cout << "=============================================" << endl;
+    cout << "       Santa Christmas List Generator" << endl;
+    cout << "=============================================" << endl << endl;
+}
+
+void InputSantaGifts(vector<string>& gifts) {
+    string input;
+
+    cout << "Please enter a list of gifts in Santa's bag." << endl;
+    cout << "Enter q when done." << endl << endl;
+
+    while (true) {
+        cout << "Gift: ";
+        getline(cin, input);
+
+        if (input == "q") {
+            cout << endl;
+            return;
+        }
+
+        gifts.push_back(input);
+    }
+}
+
+void InputChildrenNames(vector<string>& children) {
+    string input;
+
+    cout << "Please enter a list of names on Santa's list." << endl;
+    cout << "Enter q when done." << endl << endl;
+
+    while (true) {
+        cout << "Name: ";
+        getline(cin, input);
+
+        if (input == "q") {
+            cout << endl;
+            return;
+        }
+
+        children.push_back(input);
+    }
+}
+
+void SaveSantaList(const vector<string>& gifts, const vector<string>& children) {
+    const string FILE_NAME = "SantaList.txt";
+    ofstream outFile;
+    int isNaughty, index;
+
+    srand(time(0));
+
+    outFile.open(FILE_NAME);
+    if (!outFile.is_open()) {
+        throw runtime_error("Unable to save Santa's list to " + FILE_NAME);
+    }
+
+    cout << "Please wait while saving Santa's list to file: " << FILE_NAME << endl;
+
+    outFile << "=============================================" << endl;
+    outFile << "        Santa's Naughty or Nice List" << endl;
+    outFile << "=============================================" << endl;
+    outFile << "Name              Status  Gift" << endl;
+    outFile << "----------------- ------- -------------------" << endl;
+
+    for (size_t i = 0; i < children.size(); i++) {
+        outFile << left << setw(17) << children[i];
+        isNaughty = rand() % 2;
+
+        if (isNaughty) {
+            outFile << "Naughty " << "COAL" << endl;
+        }
+        else {
+            index = rand() % gifts.size();
+            outFile << "Nice    " << gifts[index] << endl;
+        }
+    }
+
+    outFile.close();
+    cout << "Successfully saved " << children.size() << " names" << endl;
+}*/
 /*****************************************************************************
 Prompt the user to give an answer to the question
 Gets the users inputted answer
